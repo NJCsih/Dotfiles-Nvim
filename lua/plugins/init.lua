@@ -77,6 +77,8 @@ require("lazy").setup({
 			require('hologram').setup {
 				auto_display = true -- WIP automatic markdown image display, may be prone to breaking
 			}
+
+			require("plugins.latexrender") -- This is so cool!
 		end,
 	},
 
