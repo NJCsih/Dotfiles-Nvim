@@ -6,15 +6,16 @@ require("lazy").setup({
 
 	-- First Class -------------------------------------------------------------
 
-	{
-		"nvim-treesitter/nvim-treesitter", -- Treesitter, it's pretty cool
+	{ -- Treesitter, it's pretty cool
+		"nvim-treesitter/nvim-treesitter",
 		config = function()
 			require("plugins.treesitter")
 		end,
 	},
 
-	{
-		"nvim-neorg/neorg", -- Neorg, for note taking
+
+	{ -- Neorg, for note taking
+		"nvim-neorg/neorg",
 		dependencies = { "luarocks.nvim" },
 		lazy = true,
 		ft = "norg",
@@ -29,14 +30,16 @@ require("lazy").setup({
 		lazy = true,
 	},
 
-	{
-		"neovim/nvim-lspconfig", -- my lsp stuff, Just keeping it simple
+
+	{ -- My lsp stuff, Just keeping it simple
+	--   My configs are adapted (largely stolen) from https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
+		"neovim/nvim-lspconfig",
 		config = function()
 			require("plugins.lsp")
 		end,
 	},
-	{
-		"williamboman/mason.nvim", -- installer for stuff, TODO config issue for autoinstall
+	{ -- Installer for stuff, TODO config issue for autoinstall
+		"williamboman/mason.nvim",
 		lazy = false,
 		config = function()
 			require("plugins.mason")
@@ -44,8 +47,9 @@ require("lazy").setup({
 		end,
 	},
 
-	{
-		"hrsh7th/nvim-cmp", -- completion, very nice
+
+	{ -- Completion, I use weird keybinds
+		"hrsh7th/nvim-cmp",
 		dependencies = {
 			"hrsh7th/cmp-nvim-lsp",
 			"hrsh7th/cmp-buffer",
@@ -71,20 +75,36 @@ require("lazy").setup({
 		event = BufEnter,
 	},
 
-	{ -- image rendering
+
+	{ -- LaTeX compilation/editing via nvim. -- need latex installed on system
+		"lervag/vimtex",
+		dependencies = { "micangl/cmp-vimtex", },
+		config = function()
+			require("plugins.vimtex")
+		end,
+	},
+	{
+		"micangl/cmp-vimtex",
+	},
+
+
+	{ -- Image rendering -- Will be for notes and latex rendering
 		"edluffy/hologram.nvim",
 		config = function()
 			require('hologram').setup {
 				auto_display = true -- WIP automatic markdown image display, may be prone to breaking
 			}
 
-			require("plugins.latexrender") -- This is so cool!
+			-- Latex rendering provided by https://github.com/lervag/vimtex
+			require("plugins.latexrender") -- This is so cool! -- Still a hair jank.
 		end,
 	},
 
-	{
+
+	{ -- Git integration
 		"tpope/vim-fugitive",
 	},
+
 
 	--	{
 	--		"pocco81/auto-save.nvim",
@@ -129,15 +149,17 @@ require("lazy").setup({
 	--    end,
 	--  },
 
-	{
-		"stevearc/conform.nvim", -- autoformatting I think
+
+	{ -- Autoformatting
+		"stevearc/conform.nvim",
 		event = BufEnter,
 		config = function()
 			require("plugins.conform")
 		end,
 	},
 
-	{
+
+	{ -- Time travel through undos and timelines -- Very nice
 		"mbbill/undotree",
 		config = function()
 			vim.keymap.set('n', '<leader>ut', vim.cmd.UndotreeToggle)
@@ -148,7 +170,7 @@ require("lazy").setup({
 
 	-- Second Class --------------------------------------------------------------
 
-	{ -- lualine, bar across bottom
+	{ -- Lualine, Bottom bar
 		"nvim-lualine/lualine.nvim",
 		config = function()
 			require("plugins.lualine")
@@ -156,7 +178,8 @@ require("lazy").setup({
 		lazy = false,
 	},
 
-	{
+
+	{ -- Fast file navigation, my keybinds are weird, ie. no ^u, but I dont really use ^u and ^d?
 		"ThePrimeagen/harpoon",
 		dependencies = { "nvim-lua/plenary.nvim" },
 		config = function()
@@ -165,7 +188,8 @@ require("lazy").setup({
 		lazy = false,
 	},
 
-	{
+
+	{ -- Fuzzy finder, very nice
 		"nvim-telescope/telescope.nvim",
 		dependencies = { "nvim-lua/plenary.nvim" },
 		config = function()
@@ -174,28 +198,37 @@ require("lazy").setup({
 		lazy = false,
 	},
 
-	{
+
+	{ -- TJ Devires' plugin, a dependency for a lot
 		"nvim-lua/plenary.nvim",
+		lazy = false,
 	},
 
 
+	{ -- show git diff in butter
+		"airblade/vim-gitgutter",
+		event = BufEnter,
+	},
 
-	{
-		"jbyuki/venn.nvim", -- for drawing my little diagrams
+
+	{ -- For drawing my little circuit diagrams
+		"jbyuki/venn.nvim",
 		config = function()
 			require("plugins.venn")
 		end,
 	},
 
-	{
-		"shortcuts/no-neck-pain.nvim", -- center buffer, I just do :NoNeckPain
+
+	{ -- Center buffer, I dont use this much
+		"shortcuts/no-neck-pain.nvim",
 		config = function()
 			require("plugins.no-neck-pain")
 		end,
 	},
 
-	{
-		"https://git.sr.ht/~whynothugo/lsp_lines.nvim", -- prettier virtual text lines for lsp
+
+	{ -- Display lsp issues in virtual lines showing where the error is
+		"https://git.sr.ht/~whynothugo/lsp_lines.nvim",
 		config = function()
 			require("lsp_lines").setup()
 			vim.diagnostic.config({ virtual_text = false, })
@@ -204,22 +237,20 @@ require("lazy").setup({
 		dependencies = { "neovim/nvim-lspconfig" },
 	},
 
-	{
-		"folke/which-key.nvim", -- would be pretty cool, need to setup
+
+	{ -- Better keybind tracking, need to actually setup
+		"folke/which-key.nvim",
 		enabled = false,
 	},
 
-	{
-		"folke/neodev.nvim", -- for neovim development, needs to be setup. Not a priority
+
+	{ -- for neovim development, needs to be setup. Not a priority
+		"folke/neodev.nvim",
 		enabled = false,
 	},
 
-	--  { "ellisonleao/gruvbox.nvim",
-	--    config = function()
-	--        vim.cmd.colorscheme("gruvbox")
-	--    end,
-	--  },
-	{
+
+	{ -- Splash screen on startup without specified directory
 		"goolord/alpha-nvim",
 		config = function()
 			require("plugins.alpha")
@@ -227,12 +258,15 @@ require("lazy").setup({
 		lazy = false,
 	},
 
+
 	{
 		--"catppuccin/nvim", -- colorscheme
-		--"folke/tokoyonight.nvim",
+		--"ellisonleao/gruvbox.nvim",
 		"navarasu/onedark.nvim",
+		--"folke/tokoyonight.nvim",
 		config = function()
 			--vim.cmd.colorscheme("catppuccin-mocha")
+			--vim.cmd.colorscheme("gruvbox")
 			vim.cmd.colorscheme("onedark")
 
 			--vim.cmd([[highlight Normal guibg=none]])

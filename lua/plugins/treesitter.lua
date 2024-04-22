@@ -14,3 +14,8 @@ require('nvim-treesitter').setup {
 
   indent = { enable = true },
 }
+
+-- Make TS auto-enable? Not sure why it doesnt.
+vim.cmd([[
+    TSEnable highlight
+]])

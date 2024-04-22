@@ -5,7 +5,7 @@ local dashboard = require("alpha.themes.dashboard")
 dashboard.section.header.val = { -- https://patorjk.com/software/taag/#p=testall&v=0&f=Sony&t=NEOVIM
 	"                                                                   ",
 	"       ████ ██████           █████      ██ ██              ",
-	"      ███████████             █████    ██       󰣇 ⛕         ", -- Arch, the weirdest unicode symbol I've found so far, and vim :p
+	"      ███████████             █████    ██       󰣇 ⛕         ", -- Arch, the weirdest unicode symbol I've found so far, and vim :p 󰣇 ⛕ 
 	"      █████████ ████████████████  ██████████████     ",
 	"     █████████  ███    ████████████████████████    ",
 	"    █████████ ██████████ ███████████████ ███ ███   ",
