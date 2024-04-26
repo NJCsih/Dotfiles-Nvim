@@ -1,4 +1,7 @@
---set cursor to block
+-- disable mouse
+vim.opt.mouse = ""
+
+-- set cursor to block
 vim.opt.guicursor = "n-v-c-sm-i:block,ci-ve:ver25,r-cr-o:hor20"
 
 -- always use relative line numbers
