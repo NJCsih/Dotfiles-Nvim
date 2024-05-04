@@ -7,6 +7,7 @@ require("plugins.lsp.matlab_ls")
 require("plugins.lsp.pyright")
 require("plugins.lsp.rust_analyzer")
 require("plugins.lsp.texlab")
+require("plugins.lsp.zls")
 
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions

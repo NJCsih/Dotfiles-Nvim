@@ -12,5 +12,6 @@ require("mason").setup({
 		--"java-test",
 		--"jdtls",
 		--"rust-anayzer",
+		"zls"
 	},
 })

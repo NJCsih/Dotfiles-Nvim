@@ -105,11 +105,11 @@ vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
 })
 
 vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
-	pattern = { "*.c", "*.cpp", "*.h", "*.cc" },
+	pattern = { "*.c", "*.cpp", "*.h", "*.cc", "*.zig", "*.zir" },
 	callback = function()
-		vim.opt_local.tabstop = 2
-		vim.opt_local.softtabstop = 2
-		vim.opt_local.shiftwidth = 2
+		vim.opt_local.tabstop = 4
+		vim.opt_local.softtabstop = 4
+		vim.opt_local.shiftwidth = 4
 		vim.opt_local.expandtab = true --use real tabs
 	end,
 })
