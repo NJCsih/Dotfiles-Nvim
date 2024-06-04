@@ -90,9 +90,10 @@ vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
 	pattern = { "*.md" },
 	callback = function()
 		-- Regex insert a tab at the front of the line
-		vim.keymap.set("i", "<TAB>", "")
+		vim.keymap.set("v", "<TAB>", ":s/^/\t/<CR>gv")
 		-- Regex remove a tab at the front of the line
-		vim.keymap.set("i", "<S-<TAB>>", "")
+		vim.keymap.set("v", "<S-TAB>", ":s/^\t//<CR>gv")
+    vim.opt_local.expandtab = false
 	end,
 })
 vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
