@@ -29,7 +29,7 @@ vim.api.nvim_create_autocmd({ "CursorMoved" }, {
 
 -- C/cpp
 -- vim.api.nvim_create_autocmd("BufWritePre", { -- on save autoformat
--- 	pattern = { "*.c", "*.cpp", "*.h", "*.cc", "*.lua" },
+-- 	pattern = { "*.c", "*.cpp", "*.h", "*.cc", "*.lua", "*.nix" },
 -- 	callback = function()
 -- 		require("conform").format({
 -- 			lsp_fallback = true,
@@ -46,13 +46,6 @@ vim.api.nvim_create_autocmd({ "FileType" }, {-- needs to be reviewed
 		print("Opening netrw") -- why this no work
 		vim.opt.number = true
 		vim.opt.relativenumber = true
-	end,
-})
-
-vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, { -- set nvim settings on open buffer
-	pattern = { "*.c", "*.cpp", "*.h", "*.cc", "*.lua" },
-	callback = function()
-		--vim.opt_local.colorcolumn = 80 -- Set colorbar at 80 chars
 	end,
 })
 
@@ -105,12 +98,16 @@ vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
 })
 
 vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
-	pattern = { "*.c", "*.cpp", "*.h", "*.cc", "*.zig", "*.zir" },
+	pattern = { "*.c", "*.cpp", "*.h", "*.cc", "*.zig", "*.zir", "*.lua", "*.nix" },
 	callback = function()
 		vim.opt_local.tabstop = 4
 		vim.opt_local.softtabstop = 4
 		vim.opt_local.shiftwidth = 4
 		vim.opt_local.expandtab = true --use real tabs
+		vim.opt_local.colorcolumn = "80" -- Set colorbar at 80 chars
+		vim.opt_local.expandtab = true -- use spaces not tabs
+		vim.opt_local.shiftwidth = 2 -- only two spaces
+		vim.opt_local.tabstop = 2
 	end,
 })
 
