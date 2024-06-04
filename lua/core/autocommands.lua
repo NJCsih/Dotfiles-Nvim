@@ -100,14 +100,41 @@ vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
 vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
 	pattern = { "*.c", "*.cpp", "*.h", "*.cc", "*.zig", "*.zir", "*.lua", "*.nix" },
 	callback = function()
+		vim.opt_local.tabstop = 2
+		vim.opt_local.softtabstop = 2
+		vim.opt_local.shiftwidth = 2
+		vim.opt_local.expandtab = true --use spaces tabs
+		vim.opt_local.colorcolumn = "80" -- Set colorbar at 80 chars
+	end,
+})
+vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
+	pattern = { "*.lua" },
+	callback = function()
+		vim.opt_local.tabstop = 2
+		vim.opt_local.softtabstop = 2
+		vim.opt_local.shiftwidth = 2
+		vim.opt_local.expandtab = false --use real tabs
+		vim.opt_local.colorcolumn = "100" -- Set colorbar at 80 chars
+	end,
+})
+vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
+	pattern = { "*.nix" },
+	callback = function()
 		vim.opt_local.tabstop = 4
 		vim.opt_local.softtabstop = 4
 		vim.opt_local.shiftwidth = 4
 		vim.opt_local.expandtab = true --use real tabs
+		vim.opt_local.colorcolumn = "100" -- Set colorbar at 80 chars
+	end,
+})
+vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
+	pattern = { "*.java" },
+	callback = function()
+		vim.opt_local.tabstop = 4
+		vim.opt_local.softtabstop = 4
+		vim.opt_local.shiftwidth = 4
+		vim.opt_local.expandtab = false --use real tabs
 		vim.opt_local.colorcolumn = "80" -- Set colorbar at 80 chars
-		vim.opt_local.expandtab = true -- use spaces not tabs
-		vim.opt_local.shiftwidth = 2 -- only two spaces
-		vim.opt_local.tabstop = 2
 	end,
 })
 
