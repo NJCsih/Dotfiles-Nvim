@@ -86,7 +86,6 @@ vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
 		}
 	end,
 })
-
 vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
 	pattern = { "*.md" },
 	callback = function()
@@ -96,9 +95,8 @@ vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
 		vim.keymap.set("i", "<S-<TAB>>", "")
 	end,
 })
-
 vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
-	pattern = { "*.c", "*.cpp", "*.h", "*.cc", "*.zig", "*.zir", "*.lua", "*.nix" },
+	pattern = { "*.c", "*.cpp", "*.h", "*.cc", "*.zig", "*.zir" },
 	callback = function()
 		vim.opt_local.tabstop = 2
 		vim.opt_local.softtabstop = 2
