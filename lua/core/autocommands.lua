@@ -55,8 +55,7 @@ vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, { -- set nvim setting
 		--vim.opt.number = true
 		--vim.opt.relativenumber = true
 		--vim.opt_local.textwidth = 80
-		--vim.opt.colorcolumn = 80
-		--vim.opt_local.colorcolumn = 80 -- Set colorbar at 80 chars
+		vim.opt_local.colorcolumn = 80
 		vim.opt_local.expandtab = true
 	end,
 })
@@ -119,9 +118,9 @@ vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
 vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
 	pattern = { "*.nix" },
 	callback = function()
-		vim.opt_local.tabstop = 4
-		vim.opt_local.softtabstop = 4
-		vim.opt_local.shiftwidth = 4
+		vim.opt_local.tabstop = 2
+		vim.opt_local.softtabstop = 2
+		vim.opt_local.shiftwidth = 2
 		vim.opt_local.expandtab = true --use real tabs
 		vim.opt_local.colorcolumn = "100" -- Set colorbar at 80 chars
 	end,
