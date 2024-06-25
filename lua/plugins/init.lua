@@ -19,16 +19,16 @@ require("lazy").setup({
 		dependencies = { "luarocks.nvim" },
 		lazy = true,
 		ft = "norg",
-		version = "*", -- Pin Neorg to the latest stable release
+		tag = "v7.0.0", -- Pin Neorg to the latest stable release
 		config = function()
 			require("plugins.neorg")
 		end,
 	},
-	{
-		"vhyrro/luarocks.nvim",
-		config = true,
-		lazy = true,
-	},
+--	{
+--		"vhyrro/luarocks.nvim",
+--		config = true,
+--		lazy = true,
+--	},
 
 
 	{ -- My lsp stuff, Just keeping it simple
@@ -82,9 +82,11 @@ require("lazy").setup({
 		config = function()
 			require("plugins.vimtex")
 		end,
+		enabled = false,
 	},
 	{
 		"micangl/cmp-vimtex",
+		enabled = false,
 	},
 
 
@@ -269,8 +271,10 @@ require("lazy").setup({
 			--vim.cmd.colorscheme("gruvbox")
 			vim.cmd.colorscheme("onedark")
 
-			--vim.cmd([[highlight Normal guibg=none]])
-			--vim.cmd([[highlight NormalNC guibg=none]])
+			vim.cmd([[highlight Normal guibg=none]])
+			vim.cmd([[highlight NormalNC guibg=none]])
+			vim.cmd([[highlight EndOfBuffer guibg=none]])
+			vim.cmd([[highlight SignColumn guibg=none]])
 		end,
 	},
 

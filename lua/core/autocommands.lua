@@ -64,7 +64,6 @@ vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, { -- set nvim setting
 vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
 	pattern = { "*.norg", "*.txt" }, -- "*.md", I think real tabs would be nice
 	callback = function()
-		-- print("Entering a md or norg file")
 		vim.opt_local.spell = true -- enable spellcheck
 		vim.opt_local.expandtab = true -- use spaces not tabs
 		vim.opt_local.signcolumn = "no" -- disable colorcol for these
@@ -92,7 +91,7 @@ vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
 		vim.keymap.set("v", "<TAB>", ":s/^/\t/<CR>gv")
 		-- Regex remove a tab at the front of the line
 		vim.keymap.set("v", "<S-TAB>", ":s/^\t//<CR>gv")
-    vim.opt_local.expandtab = false
+		vim.opt_local.expandtab = false
 	end,
 })
 vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
