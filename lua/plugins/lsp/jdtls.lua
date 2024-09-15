@@ -18,6 +18,7 @@ lspconfig.jdtls.setup({
 	--	},
 	--root_dir = vim.fs.dirname(vim.fs.find({'gradlew', '.git', '.gitignore', 'mvnw'}, { upward = true })[1]),
 
+	--root_dir = vim.fs.dirname(vim.fs.find({'gradlew', '.git', 'mvnw'}, { upward = true })[1]),
 	--root_dir = require('jdtls.setup').find_root({'.git', 'mvnw', 'gradlew'}),
 	-- TODO Fix root dir
 	--root_dir = "~/",
